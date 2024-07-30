@@ -1,6 +1,9 @@
-import styled from 'styled-components'
-import backgroundTitle from '../../assets/image_home.jpg'
-import colors from '../../utils/style/colors'
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import backgroundTitle from '../../assets/image_home.jpg';
+import colors from '../../utils/style/colors';
+import Card from '../../components/Card';
+import data from '../../data/data.json';
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -26,7 +29,7 @@ const TitleWrapper = styled.div`
   background-size: cover;
   background-position: center;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 25px;
   box-shadow: 0px 4px 4px 0px #00000040;
 `;
 
@@ -60,23 +63,14 @@ const GalleryWrapper = styled.div`
   border-radius: 15px;
 `;
 
-const GalleryItem = styled.div`
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(10, 10, 10, 0) 42%, rgba(4, 4, 4, 0.205) 99.99%, rgba(0, 0, 0, 0.5) 100%),
-  ${colors.primary};
-  height: 340px; 
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 20px;
-  box-sizing: border-box;
-  font-weight: 700;
-  font-size: 18px;
-  color: white;
-`;
-
 
 function Home() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    setItems(data);
+  }, []);
+
   return (
     <HomeWrapper>
       <HomeContainer>
@@ -87,13 +81,13 @@ function Home() {
           </StyledTitle>
         </TitleWrapper>
         <GalleryWrapper>
-          {/* Remplacez les divs ci-dessous par les éléments réels de votre galerie */}
-          <GalleryItem>Titre de la location</GalleryItem>
-          <GalleryItem>Titre de la location</GalleryItem>
-          <GalleryItem>Titre de la location</GalleryItem>
-          <GalleryItem>Titre de la location</GalleryItem>
-          <GalleryItem>Titre de la location</GalleryItem>
-          <GalleryItem>Titre de la location</GalleryItem>
+          {items.map(item => (
+            <Card
+              key={item.id}
+              title={item.title}
+              cover={item.cover}
+            />
+          ))}
         </GalleryWrapper>
       </HomeContainer>
     </HomeWrapper>
