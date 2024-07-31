@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import Logo from '../../assets/logo.jpg'
 import { StyledLinkNav } from '../../utils/style/Atoms'
@@ -19,20 +19,22 @@ const NavContainer = styled.nav`
 
 const NavLinksContainer = styled.div`
   display: flex;
-  gap: 57px; /* Utilisez gap ici pour espacer les liens */
+  gap: 57px;
 `
 
 function Header() {
+  const location = useLocation();
+  
   return (
     <NavContainer>
       <Link to="/">
         <HomeLogo src={Logo} />
       </Link>
       <NavLinksContainer>
-        <StyledLinkNav to="/">
+      <StyledLinkNav to="/" $active={location.pathname === '/'}>
           Accueil
         </StyledLinkNav>
-        <StyledLinkNav to="/about">
+        <StyledLinkNav to="/about" $active={location.pathname === '/about'}>
           A Propos
         </StyledLinkNav>
       </NavLinksContainer>

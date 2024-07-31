@@ -56,11 +56,13 @@ const StyledTitle = styled.h2`
 const GalleryWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
+  grid-column-gap: 60px;
   margin-top: 43px;
   background-color: ${colors.backgroundGallery};
-  padding: 50px;
+  padding: 0 50px 49px 50px;
   border-radius: 15px;
+  max-height: 780px; 
+  overflow-y: auto;
 `;
 
 

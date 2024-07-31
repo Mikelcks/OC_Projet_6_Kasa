@@ -10,7 +10,10 @@ export const StyledLinkNav = styled(Link)`
   font-weight: 500;
   text-align: center;
 
-  &:hover {
+  ${({ $active }) =>
+    $active &&
+    `
     text-decoration: underline;
-  }
+    text-decoration-skip-ink: none;
+  `}
 `

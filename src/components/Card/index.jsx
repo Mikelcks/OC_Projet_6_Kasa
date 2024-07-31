@@ -7,21 +7,14 @@ const CardWrapper = styled.div`
   background-color: ${colors.primary};
   height: 340px;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
   position: relative;
   overflow: hidden;
-`;
-
-const ImageWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  margin-top: 50px;
 `;
 
 const CardCover = styled.img`
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
 `;
@@ -33,7 +26,7 @@ const TextContainer = styled.div`
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  background: ${props => props.backgroundColor || colors.primary};
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(10, 10, 10, 0.1) 42%, rgba(4, 4, 4, 0.5) 99.99%, rgba(0, 0, 0, 0.8) 100%);
   color: white;
   font-weight: 700;
   font-size: 18px;
@@ -50,9 +43,7 @@ const CardTitle = styled.h3`
 
 const Card = ({ title, cover }) => (
   <CardWrapper>
-    <ImageWrapper>
       <CardCover src={cover} alt={title} />
-    </ImageWrapper>
     <TextContainer>
       <CardTitle>{title}</CardTitle>
     </TextContainer>

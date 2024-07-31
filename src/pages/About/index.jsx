@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import styled from 'styled-components'
-import backgroundAbout from '../../assets/image_about.jpg'
-import colors from '../../utils/style/colors'
-import vector from '../../assets/arrow_vector.svg'
+import styled from 'styled-components';
+import backgroundAbout from '../../assets/image_about.jpg';
+import colors from '../../utils/style/colors';
+import vector from '../../assets/arrow_vector.svg';
 
 const HomeWrapper = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -15,7 +15,7 @@ const HomeContainer = styled.div`
   margin: 30px;
   display: flex;
   flex-direction: column;
-`
+`;
 
 const TitleWrapper = styled.div`
   position: relative;
@@ -45,7 +45,7 @@ const GalleryWrapper = styled.div`
 
 const HiddenTextWrapper = styled.div`
   display: flex;
-  justify-content: center; /* Centre le texte horizontalement */
+  justify-content: center;
   width: 100%;
 `;
 
@@ -56,48 +56,55 @@ const GalleryAbout = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 20px 10px 15px;
   box-sizing: border-box;
   font-weight: 700;
   font-size: 24px;
   color: white;
   position: relative;
-  cursor: pointer; /* Indique que c'est cliquable */
+  cursor: pointer;
 `;
 
 const ArrowIcon = styled.img.attrs({
   src: vector,
 })`
-  width: 24px; /* Ajuste la taille de l'icône selon tes besoins */
+  width: 24px;
   height: auto;
-  transition: transform 0.3s; /* Pour une animation fluide si besoin */
+  transition: transform 0.3s;
+  transform: ${(props) => (props.isOpen ? 'rotate(180deg)' : 'rotate(360deg)')};
 `;
 
 const HiddenText = styled.div`
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
-  width: 99%;
-  font-size: 18px;
+  width: 100%;
+  font-size: 20px;
+  line-height: 1.3;
   color: black;
   background-color: ${colors.backgroundGallery};
   border-radius: 0 0 5px 5px;
-  padding: 10px;
+  padding: 20px;
   box-sizing: border-box;
   text-align: left;
 `;
 
+const isOpen = (index, openIndexes) => openIndexes.includes(index);
 
 function Home() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndexes, setOpenIndexes] = useState([]);
 
   const toggleText = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndexes(prevIndexes =>
+      prevIndexes.includes(index)
+        ? prevIndexes.filter(i => i !== index)
+        : [...prevIndexes, index]
+    );
   };
 
   const categories = [
-    { name: 'Fiabilité', text: 'Texte détaillé pour la fiabilité.' },
-    { name: 'Respect', text: 'Texte détaillé pour le respect.' },
-    { name: 'Service', text: 'Texte détaillé pour le service.' },
-    { name: 'Sécurité', text: 'Texte détaillé pour la sécurité.' }
+    { name: 'Fiabilité', text: 'Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes.' },
+    { name: 'Respect', text: 'La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme.' },
+    { name: 'Service', text: 'La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme.' },
+    { name: 'Sécurité', text: 'La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l\'hôte qu\'au locataire, cela permet à nos équipe de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes.' }
   ];
 
   return (
@@ -109,10 +116,10 @@ function Home() {
             <div key={index}>
               <GalleryAbout onClick={() => toggleText(index)}>
                 {category.name}
-                <ArrowIcon />
+                <ArrowIcon isOpen={isOpen(index, openIndexes)} />
               </GalleryAbout>
               <HiddenTextWrapper>
-                <HiddenText isOpen={openIndex === index}>
+                <HiddenText isOpen={isOpen(index, openIndexes)}>
                   {category.text}
                 </HiddenText>
               </HiddenTextWrapper>
