@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import colors from '../../utils/style/colors';
@@ -41,16 +42,19 @@ const CardTitle = styled.h3`
   color: white;
 `;
 
-const Card = ({ title, cover }) => (
-  <CardWrapper>
+const Card = ({ id, title, cover }) => (
+  <Link to={`/item/${id}`} style={{ textDecoration: 'none' }}>
+    <CardWrapper>
       <CardCover src={cover} alt={title} />
-    <TextContainer>
-      <CardTitle>{title}</CardTitle>
-    </TextContainer>
-  </CardWrapper>
+      <TextContainer>
+        <CardTitle>{title}</CardTitle>
+      </TextContainer>
+    </CardWrapper>
+  </Link>
 );
 
 Card.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   cover: PropTypes.string.isRequired,
 };
