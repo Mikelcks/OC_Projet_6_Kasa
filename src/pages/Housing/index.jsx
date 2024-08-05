@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import ImageCarousel from '../../components/ImageCarousel'
 import StarRating from '../../components/StarRating'
 import ExpandableSection from '../../components/ExpandableSection'
@@ -10,7 +10,7 @@ const Housing = () => {
   const item = data.find((item) => item.id === id)
 
   if (!item) {
-    return <div>Item not found</div>
+    return <Navigate to="/error" replace />;
   }
 
   const handlePrevClick = () => {
