@@ -35,12 +35,12 @@ const ImageCarousel = ({ images }) => {
     slidesToScroll: 1,
     prevArrow: (
       <PrevArrow>
-        <img src={ArrowLeft} alt="Previous" style={{ width: '24px', height: '24px' }} />
+        <img src={ArrowLeft} alt="Previous" style={{ height: '80px' }} />
       </PrevArrow>
     ),
     nextArrow: (
       <NextArrow>
-        <img src={ArrowRight} alt="Next" style={{ width: '24px', height: '24px' }} />
+        <img src={ArrowRight} alt="Next" style={{ height: '80px' }} />
       </NextArrow>
     ),
   };

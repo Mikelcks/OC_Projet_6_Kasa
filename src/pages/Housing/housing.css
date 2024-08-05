@@ -1,0 +1,88 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title-location {
+  max-width: 70%;
+  color: #FF6060;
+  font-weight: 500;
+  font-size: 36px;
+}
+
+.title-location p {
+  color: black;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.host-info {
+  display: flex;
+  align-items: center;
+  color: #FF6060;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.host-name {
+  max-width: 100px;
+  margin-right: 10px;
+  text-align: end;
+}
+
+.host-picture {
+  width: 64px;
+  border-radius: 50%;
+}
+
+.tags-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.horizontal-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.horizontal-list li {
+  margin-right: 10px;
+  min-width: 95px;
+  padding: 0 10px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  background-color: #FF6060;
+}
+
+.rating {
+  margin-left: auto;
+}
+
+.section-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.expandable-section {
+  max-width: 582px;
+  flex: 1;
+}
+
+.expandable-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
