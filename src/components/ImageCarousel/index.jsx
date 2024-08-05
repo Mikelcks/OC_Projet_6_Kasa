@@ -1,16 +1,33 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React, { useState, useEffect } from 'react';
 import ArrowLeft from '../../assets/arrow_left.svg';
 import ArrowRight from '../../assets/arrow_right.svg';
 import styled from 'styled-components';
 
-const ArrowButton = styled.div`
+const CarouselContainer = styled.div`
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Masque les images hors du conteneur */
+`;
+
+const ImageWrapper = styled.div`
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: auto;
+  max-height: 415px;
+  border-radius: 10px;
+`;
+
+const ArrowButton = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: white;
+  background: transparent;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
   padding: 10px;
   z-index: 2;
@@ -28,31 +45,56 @@ const NextArrow = styled(ArrowButton)`
 `;
 
 const ImageCarousel = ({ images }) => {
-  const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    prevArrow: (
-      <PrevArrow>
-        <img src={ArrowLeft} alt="Previous" style={{ height: '80px' }} />
-      </PrevArrow>
-    ),
-    nextArrow: (
-      <NextArrow>
-        <img src={ArrowRight} alt="Next" style={{ height: '80px' }} />
-      </NextArrow>
-    ),
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [transition, setTransition] = useState(true);
+
+  useEffect(() => {
+    if (currentIndex === images.length) {
+      setTransition(false);
+      setCurrentIndex(0);
+      // Re-enable transition for next cycle
+      setTimeout(() => setTransition(true), 0);
+    } else if (currentIndex < 0) {
+      setTransition(false);
+      setCurrentIndex(images.length - 1);
+      // Re-enable transition for next cycle
+      setTimeout(() => setTransition(true), 0);
+    }
+  }, [currentIndex, images.length]);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => prevIndex - 1);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => prevIndex + 1);
   };
 
   return (
-    <Slider {...settings}>
-      {images.map((image, index) => (
-        <div key={index}>
-          <img src={image} alt={`gallery-${index}`} style={{ width: '100%', height: 'auto', maxHeight: '415px', borderRadius: '10px' }} />
+    <CarouselContainer>
+      <ImageWrapper
+        style={{
+          transform: `translateX(-${currentIndex * 100}%)`,
+          transition: transition ? 'transform 0.5s ease-in-out' : 'none',
+        }}
+      >
+        {images.map((image, index) => (
+          <div key={index} style={{ flex: '0 0 100%' }}>
+            <Image src={image} alt={`gallery-${index}`} />
+          </div>
+        ))}
+        {/* Optionally duplicate the first and last image for visual continuity */}
+        <div style={{ flex: '0 0 100%' }}>
+          <Image src={images[0]} alt="gallery-duplicate-first" />
         </div>
-      ))}
-    </Slider>
+      </ImageWrapper>
+      <PrevArrow onClick={goToPrevious}>
+        <img src={ArrowLeft} alt="Previous" style={{ height: '80px' }} />
+      </PrevArrow>
+      <NextArrow onClick={goToNext}>
+        <img src={ArrowRight} alt="Next" style={{ height: '80px' }} />
+      </NextArrow>
+    </CarouselContainer>
   );
 };
 
