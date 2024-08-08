@@ -1,0 +1,30 @@
+@use '../../utils/style/variables' as vars;
+
+.errorWrapper {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.errorTitle {
+  font-weight: 700;
+  font-size: 288px;
+  color: vars.$primary-color; 
+}
+
+.errorSubtitle {
+  font-weight: 500;
+  font-size: 36px;
+  color: vars.$primary-color;
+  margin-bottom: 100px;
+}
+
+.homeLink {
+  margin-bottom: 100px;
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: underline;
+  color: black;
+  border-radius: 5px;
+}

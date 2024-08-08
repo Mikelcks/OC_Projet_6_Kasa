@@ -1,0 +1,44 @@
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.imageWrapper > div {
+  flex: 0 0 100%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-height: 415px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.arrowButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prevArrow {
+  left: 10px;
+}
+
+.nextArrow {
+  right: 10px;
+}

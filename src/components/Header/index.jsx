@@ -1,45 +1,31 @@
-import { Link, useLocation } from 'react-router-dom'
-import styled from 'styled-components'
-import Logo from '../../assets/logo.jpg'
-import { StyledLinkNav } from '../../utils/style/Atoms'
-
-const HomeLogo = styled.img`
-  height: auto;
-`
-
-const NavContainer = styled.nav`
-  width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
-
-const NavLinksContainer = styled.div`
-  display: flex;
-  gap: 57px;
-`
+import { Link, useLocation } from 'react-router-dom';
+import Logo from '../../assets/logo.jpg';
+import styles from './header.module.scss';
 
 function Header() {
   const location = useLocation();
-  
+
   return (
-    <NavContainer>
+    <nav className={styles.navContainer}>
       <Link to="/">
-        <HomeLogo src={Logo} />
+        <img src={Logo} alt="Logo" className={styles.headerLogo} />
       </Link>
-      <NavLinksContainer>
-      <StyledLinkNav to="/" $active={location.pathname === '/'}>
+      <div className={styles.navLinksContainer}>
+        <Link
+          to="/"
+          className={`${styles.styledLinkNav} ${location.pathname === '/' ? styles.active : ''}`}
+        >
           Accueil
-        </StyledLinkNav>
-        <StyledLinkNav to="/about" $active={location.pathname === '/about'}>
+        </Link>
+        <Link
+          to="/about"
+          className={`${styles.styledLinkNav} ${location.pathname === '/about' ? styles.active : ''}`}
+        >
           A Propos
-        </StyledLinkNav>
-      </NavLinksContainer>
-    </NavContainer>
-  )
+        </Link>
+      </div>
+    </nav>
+  );
 }
 
-export default Header
+export default Header;

@@ -1,7 +1,7 @@
 import React from 'react';
 import activeStarImg from '../../assets/star_active.svg';
 import inactiveStarImg from '../../assets/star_inactive.svg';
-import './starRating.css';
+import './star_rating.scss';
 
 const StarRating = ({ rating }) => {
   const activeStarCount = Math.floor(rating);

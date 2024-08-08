@@ -1,0 +1,51 @@
+@use '../../utils/style/variables' as vars;
+
+.sectionWrapper {
+  margin-bottom: 20px;
+}
+
+.sectionHeader {
+  background-color: vars.$primary-color;
+  height: 52px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.arrowIcon {
+  width: 24px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.arrowIconOpen {
+  transform: rotate(180deg);
+}
+
+.arrowIconClosed {
+  transform: rotate(0deg);
+}
+
+.sectionContent {
+  display: none;
+  font-size: 20px;
+  line-height: 1.3;
+  color: black;
+  background-color: vars.$gallery-bg-color;
+  border-radius: 0 0 5px 5px;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.sectionContentOpen {
+  display: block;
+}
