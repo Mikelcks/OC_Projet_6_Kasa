@@ -6,7 +6,7 @@
   .aboutContainer {
     width: 100%;
     max-width: 1240px;
-    margin: 30px;
+    margin: 45px;
     display: flex;
     flex-direction: column;
   }
@@ -24,10 +24,15 @@
     overflow: hidden;
     border-radius: 25px;
     box-shadow: 0px 4px 4px 0px #00000040;
+
+    @media (max-width: 768px) {
+        height: 111px;
+    }
   }
   
   .galleryWrapper {
-    width: 1023px;
+    width:  100%;
+    max-width: 1023px;
     display: flex;
     flex-direction: column;
     gap: 10px;
