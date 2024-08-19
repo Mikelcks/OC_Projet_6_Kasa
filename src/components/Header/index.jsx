@@ -7,25 +7,28 @@ function Header() {
 
   return (
     <nav className={styles.navContainer}>
-      <Link to="/">
-        <img src={Logo} alt="Logo" className={styles.headerLogo} />
-      </Link>
-      <div className={styles.navLinksContainer}>
-        <Link
-          to="/"
-          className={`${styles.styledLinkNav} ${location.pathname === '/' ? styles.active : ''}`}
-        >
-          Accueil
+      <div className={styles.navContent}>
+        <Link to="/" className={styles.logoLink}>
+          <img src={Logo} alt="Logo" className={styles.headerLogo} />
         </Link>
-        <Link
-          to="/about"
-          className={`${styles.styledLinkNav} ${location.pathname === '/about' ? styles.active : ''}`}
-        >
-          A Propos
-        </Link>
+        <div className={styles.navLinksContainer}>
+          <Link
+            to="/"
+            className={`${styles.styledLinkNav} ${location.pathname === '/' ? styles.active : ''}`}
+          >
+            Accueil
+          </Link>
+          <Link
+            to="/about"
+            className={`${styles.styledLinkNav} ${location.pathname === '/about' ? styles.active : ''}`}
+          >
+            A Propos
+          </Link>
+        </div>
       </div>
     </nav>
   );
 }
+
 
 export default Header;
