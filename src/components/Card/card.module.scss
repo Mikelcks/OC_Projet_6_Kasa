@@ -1,12 +1,15 @@
 @use '../../utils/style/variables' as vars;
 
 .cardWrapper {
-  background-color: vars.$primary-color;
   height: 340px;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
   margin-top: 50px;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
 }
 
 .cardCover {

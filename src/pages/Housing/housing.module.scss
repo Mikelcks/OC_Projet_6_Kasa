@@ -8,20 +8,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-.title-location {
-  max-width: 70%;
+.title-location h1 {
   color: #FF6060;
   font-weight: 500;
   font-size: 36px;
+  margin-bottom: 5px;
 }
 
 .title-location p {
   color: black;
   font-size: 18px;
   font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
 .host-info {
@@ -61,7 +63,7 @@
   margin-right: 10px;
   min-width: 95px;
   padding: 0 10px;
-  height: 25px;
+  min-height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;

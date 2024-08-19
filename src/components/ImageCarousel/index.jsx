@@ -47,10 +47,10 @@ const ImageCarousel = ({ images }) => {
         </div>
       </div>
       <button className={`${styles.arrowButton} ${styles.prevArrow}`} onClick={goToPrevious}>
-        <img src={ArrowLeft} alt="Previous" style={{ height: '80px' }} />
+        <img src={ArrowLeft} alt="Previous"/>
       </button>
       <button className={`${styles.arrowButton} ${styles.nextArrow}`} onClick={goToNext}>
-        <img src={ArrowRight} alt="Next" style={{ height: '80px' }} />
+        <img src={ArrowRight} alt="Next"/>
       </button>
     </div>
   );

@@ -1,7 +1,6 @@
 @use '../../utils/style/variables' as vars;
 
 .errorWrapper {
-  margin: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,6 +13,8 @@
 }
 
 .errorSubtitle {
+  display: flex;
+  text-align: center;
   font-weight: 500;
   font-size: 36px;
   color: vars.$primary-color;
