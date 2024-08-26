@@ -9,7 +9,7 @@
   gap: 20px;
   display: flex;
   flex-direction: column;
-  background-color: vars.$color-black;
+  background-color: black;
   justify-content: space-between;
   align-items: center;
 }
@@ -17,5 +17,5 @@
 .rights {
   display: flex;
   justify-content: center;
-  color: #FFFFFF;
+  color: white;
 }

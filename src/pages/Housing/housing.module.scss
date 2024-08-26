@@ -1,3 +1,5 @@
+@use '../../utils/style/variables' as vars;
+
 .container {
   padding: 20px;
   max-width: 1240px;
@@ -12,7 +14,7 @@
 }
 
 .title-location h1 {
-  color: #FF6060;
+  color: vars.$primary-color;
   font-weight: 500;
   font-size: 36px;
   margin-bottom: 5px;
@@ -29,7 +31,7 @@
 .host-info {
   display: flex;
   align-items: center;
-  color: #FF6060;
+  color: vars.$primary-color;
   font-size: 18px;
   font-weight: 500;
 }
@@ -71,7 +73,7 @@
   color: white;
   font-weight: 700;
   font-size: 14px;
-  background-color: #FF6060;
+  background-color: vars.$primary-color;
 }
 
 .rating {

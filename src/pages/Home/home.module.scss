@@ -1,3 +1,5 @@
+@use '../../utils/style/variables' as vars;
+
 .homeWrapper {
   display: flex;
   justify-content: center;
@@ -37,12 +39,12 @@
 }
 
 .styledTitle {
-  text-align: center;
+  text-align: left;
   position: relative;
   font-weight: 700;
   font-size: 48px;
   padding: 16px;
-  color: #ffffff;
+  color: white;
   border: 1px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 2;
@@ -52,7 +54,7 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 43px;
-  background-color: #f7f7f7;
+  background-color: vars.$gallery-bg-color;
   padding: 0 50px 49px 50px;
   border-radius: 15px;
   justify-content: space-between;
