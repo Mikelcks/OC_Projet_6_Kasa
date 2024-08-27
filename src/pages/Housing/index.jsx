@@ -36,28 +36,32 @@ const Housing = () => {
         onPrevClick={handlePrevClick}
         onNextClick={handleNextClick}
       />
-      <div className={styles.header}>
-        <div className={styles['title-location']}>
-          <h1>{item.title}</h1>
-          <p>{item.location}</p>
+      <div className={styles.headerContainer}>
+        <div className={styles.headerLeft}>
+          <div className={styles['title-location']}>
+            <h1>{item.title}</h1>
+            <p>{item.location}</p>
+          </div>
+          <div className={styles['tags-rating']}>
+            <ul className={styles['horizontal-list']}>
+              {item.tags.map((tag, index) => (
+                <li key={index}>{tag}</li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className={styles['host-info']}>
-          <p className={styles['host-name']}>{item.host.name}</p>
-          <img
-            src={item.host.picture}
-            alt={item.host.name}
-            className={styles['host-picture']}
-          />
-        </div>
-      </div>
-      <div className={styles['tags-rating']}>
-        <ul className={styles['horizontal-list']}>
-          {item.tags.map((tag, index) => (
-            <li key={index}>{tag}</li>
-          ))}
-        </ul>
-        <div className={styles.rating}>
-          <StarRating rating={item.rating} />
+        <div className={styles['headerRight']}>
+          <div className={styles['host-info']}>
+            <p className={styles['host-name']}>{item.host.name}</p>
+            <img
+              src={item.host.picture}
+              alt={item.host.name}
+              className={styles['host-picture']}
+            />
+          </div>
+          <div className={styles.rating}>
+            <StarRating rating={item.rating} />
+          </div>
         </div>
       </div>
       <div className={styles['section-container']}>
@@ -82,6 +86,7 @@ const Housing = () => {
       </div>
     </div>
   );
+  
 };
 
 export default Housing;

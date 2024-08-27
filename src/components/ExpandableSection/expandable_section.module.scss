@@ -49,3 +49,23 @@
 .sectionContentOpen {
   display: block;
 }
+
+@media (max-width: 668px) {
+  .sectionWrapper {
+    margin-bottom: 0;
+  }
+
+  .sectionHeader {
+    height: 30px;
+    border-radius: 5px;
+    font-size: 13px;
+  }
+
+  .arrowIcon {
+    width: 16px;
+  }
+
+  .sectionContent {
+    font-size: 10px;
+  }
+}

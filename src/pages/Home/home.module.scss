@@ -3,6 +3,7 @@
 .homeWrapper {
   display: flex;
   justify-content: center;
+  min-height: 90vh;
 }
 
 .homeContainer {
@@ -57,7 +58,7 @@
   background-color: vars.$gallery-bg-color;
   padding: 0 50px 49px 50px;
   border-radius: 15px;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   & > * {
     margin: 5px 30px;
@@ -66,7 +67,7 @@
   }
 
   @media (max-width: 1024px) {
-    padding: 0 25px;
+    padding: 0 10px 30px 10px;
 
     & > * {
       flex: 1 1 calc(50% - 60px);
@@ -75,7 +76,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 668px) {
   .homeContainer {
     margin: 20px;
   }

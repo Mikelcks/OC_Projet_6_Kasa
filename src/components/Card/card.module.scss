@@ -7,8 +7,13 @@
   overflow: hidden;
   margin-top: 50px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 668px) {
     margin-top: 20px;
+    height: 255px;
   }
 }
 

@@ -3,10 +3,15 @@
 }
 
 .star {
-  font-size: 24px;
+  height: 36px;
 }
 
 .star.empty {
   color: lightgray;
 }
-  
+
+@media (max-width: 668px) {
+  .star {
+    height: 18px;
+  }
+}

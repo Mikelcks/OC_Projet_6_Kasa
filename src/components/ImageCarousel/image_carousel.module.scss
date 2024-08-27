@@ -18,7 +18,11 @@
   height: 100%;
   max-height: 415px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 25px;
+
+  @media (max-width: 668px) {
+    max-height: 255px;
+  }
 }
 
 .arrowButton {
@@ -41,4 +45,14 @@
 
 .nextArrow {
   right: 10px;
+}
+
+@media (max-width: 668px) {
+  .arrowButton {
+    padding: 5px;
+
+    img {
+      height: 19.8px;
+    }
+  }
 }
