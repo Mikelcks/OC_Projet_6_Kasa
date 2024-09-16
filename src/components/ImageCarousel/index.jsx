@@ -41,20 +41,26 @@ const ImageCarousel = ({ images }) => {
             <img className={styles.image} src={image} alt={`gallery-${index}`} />
           </div>
         ))}
-        {/* Optionally duplicate the first and last image for visual continuity */}
-        <div style={{ flex: '0 0 100%' }}>
-          <img className={styles.image} src={images[0]} alt="gallery-duplicate-first" />
-        </div>
+        {/* Optionally duplicate the first image for visual continuity */}
+        {images.length > 1 && (
+          <div style={{ flex: '0 0 100%' }}>
+            <img className={styles.image} src={images[0]} alt="gallery-duplicate-first" />
+          </div>
+        )}
       </div>
-      <button className={`${styles.arrowButton} ${styles.prevArrow}`} onClick={goToPrevious}>
-        <img src={ArrowLeft} alt="Previous"/>
-      </button>
-      <button className={`${styles.arrowButton} ${styles.nextArrow}`} onClick={goToNext}>
-        <img src={ArrowRight} alt="Next"/>
-      </button>
-      <div className={styles.counter}>
-        {`${currentIndex + 1}/${images.length}`}
-      </div>
+      {images.length > 1 && (
+        <>
+          <button className={`${styles.arrowButton} ${styles.prevArrow}`} onClick={goToPrevious}>
+            <img src={ArrowLeft} alt="Previous"/>
+          </button>
+          <button className={`${styles.arrowButton} ${styles.nextArrow}`} onClick={goToNext}>
+            <img src={ArrowRight} alt="Next"/>
+          </button>
+          <div className={styles.counter}>
+            {`${currentIndex + 1}/${images.length}`}
+          </div>
+        </>
+      )}
     </div>
   );
 };
