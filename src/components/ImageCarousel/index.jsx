@@ -52,6 +52,9 @@ const ImageCarousel = ({ images }) => {
       <button className={`${styles.arrowButton} ${styles.nextArrow}`} onClick={goToNext}>
         <img src={ArrowRight} alt="Next"/>
       </button>
+      <div className={styles.counter}>
+        {`${currentIndex + 1}/${images.length}`}
+      </div>
     </div>
   );
 };

@@ -47,6 +47,15 @@
   right: 10px;
 }
 
+.counter {
+  position: absolute;
+  bottom: 32.5px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 18px;
+}
+
 @media (max-width: 668px) {
   .arrowButton {
     padding: 5px;
