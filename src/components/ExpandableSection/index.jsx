@@ -4,12 +4,11 @@ import vector from '../../assets/arrow_vector.svg';
 
 const ExpandableSection = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [contentHeight, setContentHeight] = useState('0px'); // Initial height is 0
-  const contentRef = useRef(null); // Reference to the content
+  const [contentHeight, setContentHeight] = useState('0px');
+  const contentRef = useRef(null);
 
   const toggleSection = () => {
     setIsOpen(!isOpen);
-    // Dynamically set the height when toggling
     setContentHeight(!isOpen ? `${contentRef.current.scrollHeight}px` : '0px');
   };
 
